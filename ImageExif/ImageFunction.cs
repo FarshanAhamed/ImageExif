@@ -21,14 +21,7 @@ namespace ImageExif
                 await RotateImage(x, image);
                 if (image.MetaData != null && image.MetaData.ExifProfile != null)
                 {
-                    try
-                    {
-                        image.MetaData.ExifProfile.SetValue(ExifTag.Orientation, (UInt32)0);
-                    }
-                    catch (Exception e)
-                    {
-                        image.MetaData.ExifProfile.SetValue(ExifTag.Orientation, (UInt16)0);
-                    }
+                    image.MetaData.ExifProfile.SetValue(ExifTag.Orientation, (UInt16)0);
                 }
 
                 var newStream = new MemoryStream();
